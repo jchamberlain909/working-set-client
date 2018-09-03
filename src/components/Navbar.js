@@ -14,6 +14,11 @@ class Navbar extends Component {
         this.props.logoutCurrentUser()
         this.props.history.push('/')
     }
+    goToLink = (path) => {
+        if (path!==this.props.location.pathname) {
+            this.props.history.push(path)
+        }
+    }
 
     render(){
         const {loggedIn, currentUser} = this.props
@@ -22,14 +27,14 @@ class Navbar extends Component {
                 <NavLogo />
                 {loggedIn ? (
                 <NavList>
-                    <NavLink text='Projects' path="/projects"/>
-                    <NavLink text='Logout' clickHandler={this.logoutUser} />
-                    <NavLink text={currentUser.name} path="/me"/>
+                    <NavLink text='Projects' path="/projects" clickHandler={this.goToLink}/>
+                    <NavLink text='Logout' logout={this.logoutUser} />
+                    <NavLink text={currentUser.name} path="/me" clickHandler={this.goToLink}/>
                 </NavList>
                 ):(
                     <NavList>
-                        <NavLink text='Login' path='/login'/>
-                        <NavLink text='Sign Up' path='/signup'/>
+                        <NavLink text='Login' path='/login' clickHandler={this.goToLink}/>
+                        <NavLink text='Sign Up' path='/signup' clickHandler={this.goToLink}/>
                     </NavList>    
                 )}
             </div> );

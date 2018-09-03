@@ -1,12 +1,11 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
 import './styles/NavLink.css'
 
-const NavLink = ({text, history, path, clickHandler}) => {
+const NavLink = ({text, path, logout, clickHandler}) => {
     return ( 
-        <li className="nav-link" onClick={clickHandler?clickHandler:()=>history.push(path)}>
+        <li className="nav-link" onClick={logout?logout:()=>clickHandler(path)}>
             <a className="nav-link-text">{text}</a>
         </li>);
 }
  
-export default withRouter(NavLink);
+export default (NavLink);

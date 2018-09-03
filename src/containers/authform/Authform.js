@@ -10,7 +10,8 @@ class AuthForm extends Component {
         email: '',
         password: '',
         passwordConfirmation: '',
-        loading: false
+        loading: false,
+        done: false
     }
 
     onChangeHandler = (e) => {
@@ -25,15 +26,17 @@ class AuthForm extends Component {
             loading: true
         })
         // TODO add password, passwordConfirmation verification
-        const {formType, authUser, history} = this.props
+        const {formType, authUser, history, location} = this.props
         const {name, email, password, passwordConfirmation } = this.state
         let payload = (formType ==='signup')?
             {name, email, password}:{email, password}
 
         authUser(formType, payload)
         .then(()=>{
-            history.goBack()
-            this.setState({loading:false})
+            this.setState({loading:false, done: true})
+            setTimeout(() => {
+                history.goBack()
+            }, 500);
         })
         .catch(()=>{
             console.log("failure")
@@ -43,9 +46,23 @@ class AuthForm extends Component {
 
     render() { 
         const {formType} = this.props
-        const {loading} = this.state
+        const {loading, done} = this.state
+
+        let buttonStatus = ""
+
+        if (loading) {
+            buttonStatus= "loading"
+        }else if (done) {
+            buttonStatus= "done"
+        }else{
+            buttonStatus = formType
+        }
+
         return (
-            <form className={`authform`}>
+            <form className="authform">
+                
+                <h1>{formType==='signup'?"Sign Up":"Login"}</h1>
+                <hr/>
                 {formType==='signup'&&<input type="text" value={this.state.name}
                                          label='Name' 
                                          placeholder='Name'
@@ -64,7 +81,7 @@ class AuthForm extends Component {
                                          name="passwordConfirmation" 
                                          value={this.state.passwordConfirmation}
                                          type='password'/>}
-                <button onClick={this.onSubmitHandler}>{formType==='signup'?"Signup":"Login"}</button>
+                <button className={buttonStatus} onClick={this.onSubmitHandler}></button>
             </form> 
           );
     }
