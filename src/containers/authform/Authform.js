@@ -16,10 +16,6 @@ class AuthForm extends Component {
         done: false,
     }
 
-    componentDidMount() {
-        this.props.removeError()
-    }
-
     onChangeHandler = (e) => {
         this.setState({
             [e.target.name]:e.target.value
@@ -44,7 +40,7 @@ class AuthForm extends Component {
         .then(()=>{
             this.setState({loading:false, done: true})
             setTimeout(() => {
-                history.goBack()
+                history.push('/')
             }, 500);
         })
         .catch(()=>{

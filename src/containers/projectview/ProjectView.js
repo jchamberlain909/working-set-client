@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router'
-import ProjectList from "../components/ProjectList";
+import ProjectList from "../../components/ProjectList";
 
 
 const ProjectView = () => {

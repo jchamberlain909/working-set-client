@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router'
 import Home from "../../components/Home";
 import AuthForm from '../authform/Authform'
 import Profile from "../../components/Profile";
-import ProjectView from "../ProjectView"
+import CompanyView from "../companyview/CompanyView"
 import './Content.css'
 
 
@@ -22,7 +22,7 @@ class Content extends Component {
                         (routerProps)=><Profile {...routerProps} />
                     }/>
                     <Route exact path="/projects" render={
-                        (routerProps)=><ProjectView {...routerProps} />
+                        (routerProps)=><CompanyView {...routerProps} />
                     }/>
                 </Switch>
             </div>
