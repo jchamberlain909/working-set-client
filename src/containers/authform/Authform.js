@@ -40,7 +40,7 @@ class AuthForm extends Component {
         .then(()=>{
             this.setState({loading:false, done: true})
             setTimeout(() => {
-                history.push('/')
+                history.push('/projects')
             }, 500);
         })
         .catch(()=>{

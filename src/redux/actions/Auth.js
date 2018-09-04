@@ -1,5 +1,7 @@
 import { SET_CURRENT_USER, LOGOUT_CURRENT_USER } from "./types";
 import { addError, removeError } from "./errors";
+import { setCompany } from "./company";
+import { setProjects } from "./projects";
 
 export function setCurrentUser(user) {
     return {
@@ -38,6 +40,11 @@ export function authUser(type, userData) {
                                             name: json.name,
                                             email: json.email
                                         }))
+                dispatch(setCompany(!!json.company?{
+                    id:json.company.id,
+                    name:json.company.name
+                }:null))
+                dispatch(setProjects(json.projects))
                 dispatch(removeError())
                 resolve()
             })
@@ -60,8 +67,18 @@ export function authUserFromToken() {
                 }
             }
             ).then(res=>res.json())
-            .then(user=>{
-                dispatch(setCurrentUser(user))
+            .then(json=>{
+                
+                dispatch(setCurrentUser({
+                    id:json.id,
+                    name: json.name,
+                    email: json.email
+                }))
+                dispatch(setCompany(!!json.company?{
+                    id:json.company.id,
+                    name:json.company.name
+                }:null))
+                dispatch(setProjects(json.projects))
                 dispatch(removeError())
                 resolve()
             })
