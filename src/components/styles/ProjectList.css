@@ -1,6 +1,5 @@
-.project-view {
-    height: 90%;
-    width: 100%;
+.project-list {
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;

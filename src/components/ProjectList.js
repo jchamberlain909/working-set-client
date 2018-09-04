@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from "react-redux";
+import ProjectListItem from "./ProjectListItem"
+import "./styles/ProjectList.css"
 
 const ProjectList = (props) => {
     return ( 
-    <div>
-        {props.projects.map(project=><li key={project.id}>{project.name}</li>)}
+    <div className="project-list">
+        {props.projects.map(project=><ProjectListItem key={project.id} project={project}/>)}
     </div> );
 }
 

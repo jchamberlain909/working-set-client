@@ -1,7 +1,6 @@
 import React from 'react';
-import {withRouter, Switch, Route } from 'react-router'
+import { Switch, Route } from 'react-router'
 import ProjectList from "../../components/ProjectList";
-import FAB from "../../components/FAB";
 import ProjectForm from "../../components/ProjectForm";
 import './ProjectView.css'
 
@@ -16,14 +15,11 @@ const ProjectView = (props) => {
             } />
             <Route path="/projects" render={
                         (routerProps)=>
-                        <React.Fragment>
-                            <ProjectList {...routerProps} />
-                            <FAB clickHandler={()=>props.history.push('/projects/new')}/>
-                        </React.Fragment>
+                        <ProjectList {...routerProps} />
                     }/>
             
         </Switch>
     </div> );
 }
  
-export default withRouter(ProjectView);
+export default (ProjectView);
