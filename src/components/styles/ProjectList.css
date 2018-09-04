@@ -4,7 +4,9 @@
 }
 
 .project-list thead tr th {
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: start;
     border-bottom: 1px solid #e6e8eb;
 }
 

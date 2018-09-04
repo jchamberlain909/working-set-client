@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import authenticationHOC from "../../hoc/authenticationHOC";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import ProjectView from "../projectview/ProjectView";
 import CompanyForm from "../../components/CompanyForm";
@@ -14,7 +15,7 @@ class CompanyView extends Component {
                 <div className="company-view">
                     <div className="company-view-header">
                         <h1>{company.name}</h1>
-                        <a onClick={()=>this.props.history.push('/projects/new')}>New Project</a>
+                        <Link to="/projects/new">New Project</Link>
                     </div>
                     <ProjectView />
                     
@@ -29,4 +30,4 @@ class CompanyView extends Component {
 
 const mapStateToProps = ({company}) => ({company})
  
-export default authenticationHOC(connect(mapStateToProps)(CompanyView));
+export default (connect(mapStateToProps)(CompanyView));

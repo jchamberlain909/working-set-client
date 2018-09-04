@@ -27,7 +27,7 @@ export const createProject = (projectData) => {
                 }
                 dispatch(addProject({id:json.id,name:json.name}))
                 dispatch(removeError())
-                resolve()
+                resolve(json.id)
             })
             .catch(err=>{
                 dispatch(addError(err))

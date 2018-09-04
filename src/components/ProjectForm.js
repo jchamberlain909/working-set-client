@@ -15,8 +15,8 @@ class ProjectForm extends Component {
 
     createProjectHandler = () => {
         this.props.createProject({name:this.state.name})
-        .then(()=>{
-            this.props.history.push('/projects')
+        .then((id)=>{
+            this.props.history.push(`/projects/${id}`)
         })
     }
 

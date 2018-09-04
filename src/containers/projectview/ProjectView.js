@@ -10,9 +10,10 @@ const ProjectView = (props) => {
     return ( 
     <div className="project-view">
         <Switch>
-            <Route path="/projects/new" render={
+            <Route exact path="/projects/new" render={
                 (routerProps)=><ProjectForm  {...routerProps}/>
             } />
+            <Route path="/projects/:id" />
             <Route path="/projects" render={
                         (routerProps)=>
                         <ProjectList {...routerProps} />
