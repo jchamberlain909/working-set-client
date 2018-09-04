@@ -4,9 +4,10 @@
     justify-content: center;
     align-items: flex-start;
     width: 90%;
-    height: 100%;
-    overflow: auto;
-    position: relative;
+    height: 90%;
+    
+    overflow: hidden;
+   
 }
 
 .company-view {
@@ -16,7 +17,6 @@
 
 .company-view h1 {
     height: 10%;
-    text-decoration: underline;
     width: 100%;
 }
 
@@ -25,6 +25,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(23,24,26,0.11);
+    box-shadow: 0 0 12px 0 rgba(0,0,0,0.1);
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.company-view a {
+    min-width: fit-content;
+    text-decoration: underline;
+    font-size: 1.5rem;
 }
 
 .company-view-header button {

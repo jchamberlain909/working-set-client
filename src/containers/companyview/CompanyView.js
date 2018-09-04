@@ -14,7 +14,7 @@ class CompanyView extends Component {
                 <div className="company-view">
                     <div className="company-view-header">
                         <h1>{company.name}</h1>
-                        <button onClick={()=>this.props.history.push('/projects/new')}>New Project</button>
+                        <a onClick={()=>this.props.history.push('/projects/new')}>New Project</a>
                     </div>
                     <ProjectView />
                     

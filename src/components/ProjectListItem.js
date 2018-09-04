@@ -3,9 +3,11 @@ import './styles/ProjectListItem.css'
 
 const ProjectListItem = ({project}) => {
     return ( 
-    <div className="project-list-item">
-        <h3>{project.name}</h3>
-    </div> );
+    <tr className="project-list-item">
+        <td>{project.name}</td>
+        <td></td>
+        <td></td>
+    </tr> );
 }
  
 export default ProjectListItem;

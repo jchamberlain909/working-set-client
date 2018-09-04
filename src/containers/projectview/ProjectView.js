@@ -17,7 +17,6 @@ const ProjectView = (props) => {
                         (routerProps)=>
                         <ProjectList {...routerProps} />
                     }/>
-            
         </Switch>
     </div> );
 }
