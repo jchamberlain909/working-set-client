@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router'
 import Home from "../../components/Home";
 import AuthForm from '../authform/Authform'
+import Profile from "../../components/Profile";
+import ProjectView from "../ProjectView"
 import './Content.css'
 
 
@@ -16,6 +18,12 @@ class Content extends Component {
                         (routerProps)=><AuthForm {...routerProps} formType="signup"/>}/>
                     <Route exact path="/login" render={
                         (routerProps)=><AuthForm {...routerProps} formType="login"/>}/>
+                    <Route exact path="/me" render={
+                        (routerProps)=><Profile {...routerProps} />
+                    }/>
+                    <Route exact path="/projects" render={
+                        (routerProps)=><ProjectView {...routerProps} />
+                    }/>
                 </Switch>
             </div>
           );

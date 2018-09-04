@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Profile = () => {
+const ProjectList = () => {
     return ( 
     <div>
 
     </div> );
 }
  
-export default Profile;
+export default ProjectList;
