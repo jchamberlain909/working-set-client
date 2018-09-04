@@ -27,7 +27,6 @@
     background: transparent;
     border: none;
     border-bottom: 1px solid rgb(204, 204, 204);
-    color: rgb(204, 204, 204);
     font-size: 16px;
     margin-left: 0;
     margin-right: 0;
@@ -71,7 +70,7 @@
     background: #1ECD97;
 }
 
-.loading {
+.authform button.loading {
     width: 40px;
     border-color: #bbbbbb;
     border-width: 3px;
@@ -80,22 +79,22 @@
     animation: rotating 2s 0.25s linear infinite;
 }
 
-.loading:after {
+.authform button.loading:after {
     content: "";
 }
 
-.loading:hover {
+.authform button.loading:hover {
     color: #1ECD97;
     background: white;
 }
 
-.done {
+.authform button.done {
     font-size: 13px;
     color: white;
     background: #1ECD97;
 }
 
-.done:after {
+.authform button.done:after {
     font-family: "Font Awesome 5 Free";
     content: "\f00c";
   }
@@ -108,3 +107,11 @@
       transform: rotate(360deg);
     }
   }
+
+
+div.error {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #FF0000CC;
+    color: white;
+}

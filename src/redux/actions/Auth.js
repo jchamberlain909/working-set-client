@@ -25,15 +25,24 @@ export function authUser(type, userData) {
                 },
                 body: JSON.stringify(userData)
             }
-            ).then(res=>res.json())
-            .then(({token, ...user})=>{
-                localStorage.setItem('token', token)
-                dispatch(setCurrentUser(user))
+            ).then(res=>{
+                return res.json()
+            })
+            .then((json)=>{
+                if (!json.success) {
+                    throw json.message
+                }
+                localStorage.setItem('token', json.token)
+                dispatch(setCurrentUser({
+                                            id:json.id,
+                                            name: json.name,
+                                            email: json.email
+                                        }))
                 dispatch(removeError())
                 resolve()
             })
             .catch(err=>{
-                dispatch(addError(err.message))
+                dispatch(addError(err))
                 reject()
             })
         })
