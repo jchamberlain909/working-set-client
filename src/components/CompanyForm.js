@@ -14,7 +14,7 @@ class CompanyForm extends Component {
     }
 
     createCompanyHandler = () => {
-        this.props.createCompany(this.state.name)
+        this.props.createCompany({name:this.state.name})
     }
 
     render() { 

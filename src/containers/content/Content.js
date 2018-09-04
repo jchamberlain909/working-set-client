@@ -21,7 +21,7 @@ class Content extends Component {
                     <Route exact path="/me" render={
                         (routerProps)=><Profile {...routerProps} />
                     }/>
-                    <Route exact path="/projects" render={
+                    <Route path="/projects" render={
                         (routerProps)=><CompanyView {...routerProps} />
                     }/>
                 </Switch>

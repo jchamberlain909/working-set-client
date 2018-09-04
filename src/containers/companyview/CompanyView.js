@@ -9,11 +9,12 @@ class CompanyView extends Component {
     render() { 
         const {company} = this.props
         return (
-        <div className="company-view">
+        <div className="company-view-container">
             {!!company?
-                <div>
+                <div className="company-view">
                     <h1>{company.name}</h1>
                     <ProjectView />
+                    
                 </div>:
                 <div>
                     <CompanyForm />
