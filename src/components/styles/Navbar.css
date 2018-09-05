@@ -5,10 +5,11 @@
     flex-direction: row;
     align-items: center;
     height: 10%;
-    transition: background-color .5s 1s;
+    
 }
 
 
 .navbar.authed {
+    transition: background-color .5s 1s;
     background-color: #B71C1C;
 }

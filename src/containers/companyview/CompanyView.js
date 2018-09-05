@@ -30,4 +30,4 @@ class CompanyView extends Component {
 
 const mapStateToProps = ({company}) => ({company})
  
-export default (connect(mapStateToProps)(CompanyView));
+export default authenticationHOC(connect(mapStateToProps)(CompanyView));
