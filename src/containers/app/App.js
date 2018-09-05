@@ -9,20 +9,16 @@ import { withRouter } from "react-router";
 
 class App extends Component {
 
-  componentDidMount(){
-    if (!!localStorage.getItem('token')) {
-      this.props.authUserFromToken()
-    }
-  }
-
   render() {
+    const {loggedIn} = this.props
     return (
-      <div className="App">
+      <div className={loggedIn?"App Authed":"App"}>
         <Navbar />
         <Content />
       </div>
     );
   }
 }
+const mapStateToProps = ({currentUser})=>({loggedIn:!!currentUser})
 
-export default withRouter(connect(null, { authUserFromToken } )(App));
+export default withRouter(connect(mapStateToProps, { authUserFromToken } )(App));

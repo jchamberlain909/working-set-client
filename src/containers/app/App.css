@@ -2,5 +2,20 @@
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to right bottom, #B71C1C 50%, white 50%);
+    background-size: 400% 400%;
+    background-position: center;
+}
+
+.App.Authed {
+    animation: background-shrink 3s forwards;
+}
+
+@keyframes background-shrink {
+    from {
+        background-position: center;
+    }
+    to {
+        background-position: 100% 100%;
+  }
 }
 

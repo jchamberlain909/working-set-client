@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { getProjectDetails } from "../../redux/actions/projectDetail";
 
 class ProjectDetail extends Component {
-    state = {  }
+    constructor(props){
+        super(props)
+        this.id = props.match.params.id
+    }
+   
+    componentDidMount(){
+        this.props.getProjectDetails(this.id)
+    }
+
     render() { 
         return ( 
         <div>
@@ -10,4 +20,4 @@ class ProjectDetail extends Component {
     }
 }
  
-export default ProjectDetail;
+export default connect(null,{getProjectDetails})(ProjectDetail);
