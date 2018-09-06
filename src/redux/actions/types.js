@@ -18,3 +18,6 @@ export const SET_COMPANY = "SET_COMPANY"
 
 // Project Detail Actions
 export const SET_PROJECT_DETAILS = "SET_PROJECT_DETAILS"
+
+// Drawing Actions
+export const ADD_PROJECT_DRAWING = "ADD_PROJECT_DRAWING"

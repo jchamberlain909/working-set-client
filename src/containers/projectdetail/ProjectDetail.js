@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getProjectDetails } from "../../redux/actions/projectDetail";
-import DrawingView from "../drawingview/DrawingView"
+import DrawingList from "../../components/DrawingList"
 import LoadingSpinner from '../../components/LoadingSpinner'
+import './ProjectDetail.css'
 
 class ProjectDetail extends Component {
     constructor(props){
         super(props)
         this.state = {
-            loading: false
+            loading: true
         }
         this.id = props.match.params.id
     }
@@ -25,11 +26,11 @@ class ProjectDetail extends Component {
         const {projectDetail} = this.props 
         const {loading} = this.state
         return ( 
-        <div>
+        <div className="project-detail">
             {loading? <LoadingSpinner />:
             <React.Fragment>
                 <h2>{projectDetail.name}</h2>
-                <DrawingView />
+                <DrawingList />
             </React.Fragment>
             }
             
