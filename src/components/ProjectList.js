@@ -11,7 +11,7 @@ const ProjectList = (props) => {
                 <tr>
                     <th>Name</th>
                     <th>Date Updated</th>
-                    <th>Contacts</th>
+                    <th>Followers</th>
                 </tr>
             </thead>
             <tbody>   

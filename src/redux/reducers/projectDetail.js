@@ -1,4 +1,4 @@
-import { SET_PROJECT_DETAILS, ADD_PROJECT_DRAWING } from "../actions/types";
+import { SET_PROJECT_DETAILS } from "../actions/types";
 
 export default (state={}, action) => {
     switch (action.type) {
