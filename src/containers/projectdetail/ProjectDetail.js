@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getProjectDetails } from "../../redux/actions/projectDetail";
 import LoadingSpinner from '../../components/LoadingSpinner'
+import FollowersList from '../followerslist/FollowersList'
 import './ProjectDetail.css'
 
 class ProjectDetail extends Component {
@@ -28,7 +29,13 @@ class ProjectDetail extends Component {
         <div className="project-detail">
             {loading? <LoadingSpinner />:
             <React.Fragment>
-                <h2>{projectDetail.name}</h2>
+                <div className="project-detail-header">
+                    <h2>{projectDetail.name}</h2>
+                    <h4>Last Updated: <span>{projectDetail.lastUpdated}</span></h4>
+                    <h4><a href={projectDetail.drawingLink} target="_blank">View Current Drawings</a></h4>
+                    <button>Push Updated Drawings</button>
+                </div>
+                <FollowersList projectId={this.id}/>
             </React.Fragment>
             }
             
