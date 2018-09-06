@@ -24,8 +24,7 @@ export const getProjectDetails = (id) => {
                 dispatch(setProjectDetails(
                     {   
                         id:json.id,
-                        name:json.name,
-                        drawings: json.drawings
+                        name:json.name
                     }))
                 dispatch(removeError())
                 resolve()
