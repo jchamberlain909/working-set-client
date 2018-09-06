@@ -44,7 +44,6 @@ export function authUser(type, userData) {
                     id:json.company.id,
                     name:json.company.name
                 }:null))
-                dispatch(setProjects(json.projects))
                 dispatch(removeError())
                 resolve()
             })

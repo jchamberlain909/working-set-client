@@ -1,4 +1,4 @@
-import { SET_PROJECT_DETAILS, ADD_FOLLOWER } from "./types";
+import { SET_PROJECT_DETAILS, ADD_FOLLOWER, REMOVE_FOLLOWER } from "./types";
 import { addError, removeError } from "./errors";
 
 
@@ -27,7 +27,7 @@ export const getProjectDetails = (id) => {
                         name:project.name,
                         drawingLink:project.drawing_link,
                         lastUpdated:project.last_updated,
-                        followers: project.followers.map(follower=>({email:follower.email,upToDate:follower.up_to_date}))
+                        followers: project.followers.map(follower=>({id:follower.id,email:follower.email,upToDate:follower.up_to_date}))
                     }))
                 dispatch(removeError())
                 resolve()
@@ -63,7 +63,8 @@ export const addFollower = ({projectId, email}) => {
                     throw message
                 }
                 dispatch({type:ADD_FOLLOWER, follower:
-                    {   email:follower.email,
+                    {   id: follower.id,
+                        email:follower.email,
                         upToDate:follower.up_to_date}})
                 
                 dispatch(removeError())
@@ -74,6 +75,33 @@ export const addFollower = ({projectId, email}) => {
                 reject()
             })
         })
+    }
+}
+
+export const removeFollower = ({projectId, followerId}) => {
+    return dispatch => {
+        return fetch(`http://localhost:3000/project/${projectId}/follow/${followerId}`,{
+                method: "DELETE",
+                headers:{
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: `Token ${localStorage.getItem("token")}`
+                }
+            }
+            ).then(res=>{
+                return res.json()
+            })
+            .then(({success,message})=>{
+                if (!success) {
+                    throw message
+                }
+                dispatch({type:REMOVE_FOLLOWER, id:followerId})
+                
+                dispatch(removeError())
+            })
+            .catch(err=>{
+                dispatch(addError(err))
+            })
     }
 }
 
