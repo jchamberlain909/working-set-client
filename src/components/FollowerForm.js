@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {addFollower} from '../redux/actions/projectDetail'
+import './styles/FollowerForm.css'
 
 class FollowerForm extends Component {
     state = { 
@@ -23,7 +24,8 @@ class FollowerForm extends Component {
         return (
         <form className="follower-form">
             <input type="text" value={this.state.email} 
-                    name="email" onChange={this.onChangeHandler}/>
+                    name="email" onChange={this.onChangeHandler}
+                    placeholder="Add Email"/>
             <button onClick={this.onSubmitHandler}><i className="fas fa-plus" /></button>
         </form> );
     }

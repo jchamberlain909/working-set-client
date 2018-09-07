@@ -1,10 +1,16 @@
+.follower-view {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .follower-list {
     width: 90%;
-    margin-top: 20px;
 }
 
 .follower-list thead tr th {
-    padding-top: 20px;
+    padding-top: 5px;
     padding-bottom: 20px;
     text-align: start;
     border-bottom: 1px solid #e6e8eb;

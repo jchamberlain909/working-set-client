@@ -1,0 +1,36 @@
+.follower-form {
+    width: 90%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.follower-form input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    font-size: 16px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    outline: none;
+}
+
+.follower-form button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    right: 30px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 1.5rem;
+    background-color: transparent;
+    outline: none;
+}

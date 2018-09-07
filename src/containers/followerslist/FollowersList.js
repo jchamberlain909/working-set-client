@@ -11,7 +11,7 @@ class FollowersList extends Component {
     render() { 
         const {followers, removeFollower, projectId} = this.props
         return ( 
-        <div>
+        <div className="follower-view">
             <FollowerForm projectId={projectId}/>
             <table className="follower-list">
                 <thead>
