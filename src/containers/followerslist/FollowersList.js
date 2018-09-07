@@ -12,6 +12,7 @@ class FollowersList extends Component {
         const {followers, removeFollower, projectId} = this.props
         return ( 
         <div className="follower-view">
+            <h4>Project Followers</h4>
             <FollowerForm projectId={projectId}/>
             <table className="follower-list">
                 <thead>

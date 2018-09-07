@@ -30,10 +30,14 @@ class ProjectDetail extends Component {
             {loading? <LoadingSpinner />:
             <React.Fragment>
                 <div className="project-detail-header">
-                    <h2>{projectDetail.name}</h2>
-                    <h4>Last Updated: <span>{projectDetail.lastUpdated}</span></h4>
-                    <h4><a href={projectDetail.drawingLink} target="_blank">View Current Drawings</a></h4>
-                    <button>Push Updated Drawings</button>
+                    <div className="project-detail-header-left">
+                        <h2>{projectDetail.name}</h2>
+                        <h4>Last Updated: <span>{projectDetail.lastUpdated}</span></h4>
+                    </div>
+                    <div className="project-detail-header-right">
+                        <h4><a href={projectDetail.drawingLink} target="_blank">View Current Drawings</a></h4>
+                        <button>Push Updated Drawings</button>
+                    </div>
                 </div>
                 <FollowersList projectId={this.id}/>
             </React.Fragment>

@@ -1,3 +1,19 @@
 .project-detail {
     width: 100%;
 }
+
+.project-detail-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project-detail-header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-detail-header-right {
+    display: flex;
+    flex-direction: column;
+}
