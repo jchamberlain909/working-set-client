@@ -1,4 +1,4 @@
-import { SET_COMPANY } from "./types";
+import { SET_COMPANY, ADD_CONTACT } from "./types";
 import { addError, removeError } from "./errors";
 
 
@@ -30,3 +30,5 @@ export const createCompany = (companyData) => {
             })
     }
 }
+
+export const addContact = (email) => ({type:ADD_CONTACT, contact:email})
