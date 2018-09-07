@@ -1,0 +1,20 @@
+.project-list-item{
+    padding: 2rem;
+}
+
+.project-list-item td {
+    font-weight: 600;
+    border-bottom: 1px solid #e6e8eb;
+}
+
+.fa-check-circle {
+    color: #1ECD97;
+}
+
+.fa-exclamation-triangle {
+    color: #FFCC00;
+}
+
+.fa-times {
+    color: #B71C1C;
+}
