@@ -1,5 +1,6 @@
 import { SET_PROJECT_DETAILS, ADD_FOLLOWER, REMOVE_FOLLOWER } from "./types";
 import { addError, removeError } from "./errors";
+import {addContact} from './company'
 
 
 export const setProjectDetails = (project) =>({type:SET_PROJECT_DETAILS, project})
@@ -66,7 +67,7 @@ export const addFollower = ({projectId, email}) => {
                     {   id: follower.id,
                         email:follower.email,
                         upToDate:follower.up_to_date}})
-                
+                dispatch(addContact(email))
                 dispatch(removeError())
                 resolve()
             })

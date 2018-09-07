@@ -4,14 +4,30 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import ProjectView from "../projectview/ProjectView";
 import CompanyForm from "../../components/CompanyForm";
+import {getCompany} from "../../redux/actions/company"
+import LoadingSpinner from "../../components/LoadingSpinner"
 import './CompanyView.css'
 
 class CompanyView extends Component {
+    state = {
+        loading: true
+    }
+
+    componentDidMount(){
+        this.setState({loading: true})
+        this.props.getCompany()
+        .then(()=>{
+            this.setState({loading: false})
+        })
+    }
+
+
     render() { 
+        const {loading} = this.state
         const {company} = this.props
         return (
         <div className="company-view-container">
-            {!!company?
+            {loading?<LoadingSpinner/>:(!!company?
                 <div className="company-view">
                     <div className="company-view-header">
                         <h1>{company.name}</h1>
@@ -22,7 +38,7 @@ class CompanyView extends Component {
                 </div>:
                 <div>
                     <CompanyForm />
-                </div>
+                </div>)
             }
         </div>  );
     }
@@ -30,4 +46,4 @@ class CompanyView extends Component {
 
 const mapStateToProps = ({company}) => ({company})
  
-export default authenticationHOC(connect(mapStateToProps)(CompanyView));
+export default authenticationHOC(connect(mapStateToProps, {getCompany})(CompanyView));

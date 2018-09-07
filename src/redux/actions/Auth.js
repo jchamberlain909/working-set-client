@@ -40,10 +40,6 @@ export function authUser(type, userData) {
                                             name: json.name,
                                             email: json.email
                                         }))
-                dispatch(setCompany(!!json.company?{
-                    id:json.company.id,
-                    name:json.company.name
-                }:null))
                 dispatch(removeError())
                 resolve()
             })
@@ -73,11 +69,6 @@ export function authUserFromToken() {
                     name: json.name,
                     email: json.email
                 }))
-                dispatch(setCompany(!!json.company?{
-                    id:json.company.id,
-                    name:json.company.name
-                }:null))
-                dispatch(setProjects(json.projects))
                 dispatch(removeError())
                 resolve()
             })
