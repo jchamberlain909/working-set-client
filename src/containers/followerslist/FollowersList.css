@@ -6,6 +6,7 @@
     flex-direction: column;
 }
 .follower-list {
+    margin-top: 20px;
     width: 90%;
 }
 

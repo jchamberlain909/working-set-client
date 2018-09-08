@@ -1,7 +1,5 @@
 import { SET_CURRENT_USER, LOGOUT_CURRENT_USER } from "./types";
 import { addError, removeError } from "./errors";
-import { setCompany } from "./company";
-import { setProjects } from "./projects";
 
 export function setCurrentUser(user) {
     return {
