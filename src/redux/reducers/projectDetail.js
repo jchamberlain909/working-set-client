@@ -8,6 +8,8 @@ export default (state={}, action) => {
             return {...state, followers: [...state.followers, action.follower]}
         case REMOVE_FOLLOWER:
             return {...state, followers:state.followers.filter(follower=>follower.id!==action.id)}
+        case LOGOUT_CURRENT_USER:
+            return {}
         default:
             return state
     }

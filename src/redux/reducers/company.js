@@ -6,6 +6,8 @@ export default (state=null, action) => {
             return action.company
         case ADD_CONTACT:
             return {...state,contacts:[...state.contacts,action.contact]}
+        case LOGOUT_CURRENT_USER:
+            return null
         default:
             return state
     }
