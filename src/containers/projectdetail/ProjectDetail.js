@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import LoadingSpinner from '../../components/LoadingSpinner'
 import FollowersList from '../followerslist/FollowersList'
 import UpdateDrawingsForm from "../../components/UpdateDrawingsForm";
+import moment from 'moment'
 import './ProjectDetail.css'
 
 class ProjectDetail extends Component {
@@ -34,7 +35,7 @@ class ProjectDetail extends Component {
                 <div className="project-detail-header">
                     <div className="project-detail-header-left">
                         <h2>{projectDetail.name}</h2>
-                        <h4>Last Updated: <span>{projectDetail.lastUpdated}</span></h4>
+                        <h4>Last Updated: <span>{moment(projectDetail.lastUpdated).format('MMMM Do YYYY')}</span></h4>
                     </div>
                     <div className="project-detail-header-right">
                         {projectDetail.drawingLink&&
