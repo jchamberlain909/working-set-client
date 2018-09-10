@@ -18,6 +18,7 @@ class Navbar extends Component {
     loginUser = () => {
         if (!!localStorage.getItem('token')) {
             this.props.authUserFromToken()
+            .then(this.props.history.push('/projects'))
         }else{
             this.props.history.push('/login')
         }
