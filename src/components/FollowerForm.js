@@ -50,6 +50,7 @@ class FollowerForm extends Component {
                 results={results}
                 value={email}
                 showNoResults={false}
+                placeholder="Add Follower by Email"
             />
             <button onClick={this.onSubmitHandler}><i className="fas fa-plus" /></button>
         </form> );

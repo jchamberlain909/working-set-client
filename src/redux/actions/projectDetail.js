@@ -106,3 +106,39 @@ export const removeFollower = ({projectId, followerId}) => {
     }
 }
 
+export const updateDrawings = ({projectId, formData})=>{
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+        return fetch(`http://localhost:3000/project/${projectId}/upload`,{
+                method: "POST",
+                headers:{
+                    Authorization: `Token ${localStorage.getItem("token")}`
+                },
+                body: formData
+            }
+            ).then(res=>{
+                return res.json()
+            })
+            .then(({success,message, project})=>{
+                if (!success) {
+                    throw message
+                }
+                dispatch(setProjectDetails(
+                    {   
+                        id:project.id,
+                        name:project.name,
+                        drawingLink:project.drawing_link,
+                        lastUpdated:project.last_updated,
+                        followers: project.followers.map(follower=>({id:follower.id,email:follower.email,upToDate:follower.up_to_date}))
+                    }))
+                
+                dispatch(removeError())
+                resolve()
+            })
+            .catch(err=>{
+                dispatch(addError(err))
+                reject()
+            })
+        })
+    }
+}

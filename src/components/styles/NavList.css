@@ -10,3 +10,8 @@
     border-radius: 5px;
     height: fit-content;
 }
+
+.nav-list:last-child {
+    border-right: none;
+    
+}

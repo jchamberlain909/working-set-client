@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getProjectDetails } from "../../redux/actions/projectDetail";
+import { Switch, Route } from "react-router-dom";
 import LoadingSpinner from '../../components/LoadingSpinner'
 import FollowersList from '../followerslist/FollowersList'
+import UpdateDrawingsForm from "../../components/UpdateDrawingsForm";
 import './ProjectDetail.css'
 
 class ProjectDetail extends Component {
@@ -36,10 +38,27 @@ class ProjectDetail extends Component {
                     </div>
                     <div className="project-detail-header-right">
                         <h4><a href={projectDetail.drawingLink} target="_blank">View Current Drawings</a></h4>
-                        <button>Push Updated Drawings</button>
+                        <button 
+                            onClick={()=>this.props.history.push(`/projects/${this.id}/push`)}>
+                            Push Updated Drawings</button>
                     </div>
                 </div>
-                <FollowersList projectId={this.id}/>
+                <Switch>
+                    <Route
+                        exact
+                        path={`/projects/${this.id}/push`}
+                        render={(routerProps)=>
+                            <UpdateDrawingsForm projectId={this.id} {...routerProps} />
+                        }
+                    />
+                    <Route
+                        exact
+                        path={`/projects/${this.id}`}
+                        render={(routerProps)=>
+                            <FollowersList projectId={this.id} {...routerProps}/>
+                        }
+                    />
+                </Switch>
             </React.Fragment>
             }
             

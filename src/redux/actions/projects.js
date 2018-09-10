@@ -51,13 +51,13 @@ export const createProject = (projectData) => {
             ).then(res=>{
                 return res.json()
             })
-            .then((json)=>{
-                if (!json.success) {
-                    throw json.message
+            .then(({success, message, project})=>{
+                if (!success) {
+                    throw message
                 }
-                dispatch(addProject({id:json.id,name:json.name}))
+                dispatch(addProject({id:project.id,name:project.name}))
                 dispatch(removeError())
-                resolve(json.id)
+                resolve(project.id)
             })
             .catch(err=>{
                 dispatch(addError(err))
