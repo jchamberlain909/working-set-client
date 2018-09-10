@@ -1,5 +1,6 @@
 import { ADD_ERROR, REMOVE_ERROR } from "../actions/types";
 
+
 export default (state = { message: null }, action) => {
   switch (action.type) {
     case ADD_ERROR:

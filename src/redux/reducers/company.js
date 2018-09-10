@@ -1,4 +1,6 @@
 import { SET_COMPANY, ADD_CONTACT } from "../actions/types";
+import { LOGOUT_CURRENT_USER } from "../actions/types";
+
 
 export default (state=null, action) => {
     switch (action.type) {
