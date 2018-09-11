@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import authenticationHOC from "../../hoc/authenticationHOC";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import ProjectView from "../projectview/ProjectView";
 import CompanyForm from "../../components/CompanyForm";
 import {getCompany} from "../../redux/actions/company"
 import LoadingSpinner from "../../components/LoadingSpinner"
+import { Dropdown } from "semantic-ui-react";
+import 'semantic-ui-css/components/dropdown.min.css';
+import 'semantic-ui-css/components/menu.min.css';
+import 'semantic-ui-css/components/item.min.css';
+import 'semantic-ui-css/components/transition.min.css';
 import './CompanyView.css'
-
 class CompanyView extends Component {
     state = {
         loading: true
@@ -31,7 +34,14 @@ class CompanyView extends Component {
                 <div className="company-view">
                     <div className="company-view-header">
                         <h1>{company.name}</h1>
-                        <Link to="/projects/new">New Project</Link>
+                        <Dropdown text="Company Actions">
+                            <Dropdown.Menu>
+                                <Dropdown.Item text="New Project" 
+                                    onClick={()=>this.props.history.push('/projects/new')} />
+                                <Dropdown.Item text="Invite User to Company" 
+                                    onClick={()=>this.props.history.push('/company/invite')} />
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </div>
                     <ProjectView />
                     
