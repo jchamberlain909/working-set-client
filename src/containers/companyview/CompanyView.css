@@ -28,6 +28,7 @@
     border-bottom: 1px solid #000000;
     padding-left: 5%;
     padding-right: 5%;
+    min-height: 100px;
 }
 
 .company-view a {
@@ -36,7 +37,7 @@
     font-size: 1.5rem;
 }
 
-.company-view-header button {
+/* .company-view-header button {
     outline: none;
     height: 40px;
     text-align: center;
@@ -51,8 +52,17 @@
     font-weight: bold;
     margin-right: 20px;
     box-shadow: 0px 2px 5px #666;
+} */
+
+.company-view-header input {
+    font-size: 2em;
 }
 
 .ui.dropdown {
     min-width: 200px;
+}
+
+.editable-field {
+    display: flex;
+    flex-direction: row;
 }

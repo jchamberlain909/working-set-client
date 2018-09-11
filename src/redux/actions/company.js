@@ -56,4 +56,36 @@ export const createCompany = (companyData) => {
     }
 }
 
+
+export const editCompany = ({id, name}) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+        return fetch(`http://localhost:3000/company/${id}`,{
+            method:"PATCH",
+            headers:{
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: `Token ${localStorage.getItem("token")}`
+            },
+            body: JSON.stringify({name:name})
+        }
+        ).then(res=>{
+            return res.json()
+        })
+        .then(({success, message, company})=>{
+            if (!success) {
+                throw message
+            }
+            dispatch(setCompany(company))
+            dispatch(removeError())
+            resolve()
+        })
+        .catch(err=>{
+            dispatch(addError(err))
+            reject()
+        })
+    })
+}
+}
+
 export const addContact = (email) => ({type:ADD_CONTACT, contact:email})
