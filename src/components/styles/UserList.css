@@ -1,0 +1,26 @@
+.user-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-list {
+    width: 90%;
+}
+
+.user-list thead tr th {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: start;
+    border-bottom: 1px solid #e6e8eb;
+}
+
+.user-list tbody {
+    line-height: 1.5;
+}
+
+.user-list tbody tr td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

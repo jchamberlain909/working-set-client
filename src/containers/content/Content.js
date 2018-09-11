@@ -4,7 +4,6 @@ import Home from "../../components/Home";
 import AuthForm from '../authform/Authform'
 import Profile from "../../components/Profile";
 import CompanyView from "../companyview/CompanyView"
-import CompanyEdit from '../../components/CompanyEdit'
 import './Content.css'
 
 
@@ -22,10 +21,7 @@ class Content extends Component {
                     <Route exact path="/me" render={
                         (routerProps)=><Profile {...routerProps} />
                     }/>
-                    <Route exact path="/company/edit" render={
-                        (routerProps)=> <CompanyEdit {...routerProps} />
-                    } />
-                    <Route path="/projects" render={
+                    <Route render={
                         (routerProps)=><CompanyView {...routerProps} />
                     }/>
                 </Switch>

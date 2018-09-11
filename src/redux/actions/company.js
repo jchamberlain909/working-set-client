@@ -1,4 +1,4 @@
-import { SET_COMPANY, ADD_CONTACT } from "./types";
+import { SET_COMPANY, ADD_CONTACT, REMOVE_USER } from "./types";
 import { addError, removeError } from "./errors";
 
 
@@ -89,3 +89,30 @@ export const editCompany = ({id, name}) => {
 }
 
 export const addContact = (email) => ({type:ADD_CONTACT, contact:email})
+
+
+export const removeUser = ({companyId, userId}) => {
+    return dispatch => {
+        return fetch(`http://localhost:3000/company/${companyId}/user/${userId}`,{
+            method:"DELETE",
+            headers:{
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: `Token ${localStorage.getItem("token")}`
+            }
+        }
+        ).then(res=>{
+            return res.json()
+        })
+        .then(({success, message})=>{
+            if (!success) {
+                throw message
+            }
+            dispatch({type:REMOVE_USER, userId})
+            dispatch(removeError())
+        })
+        .catch(err=>{
+            dispatch(addError(err))
+        })
+}
+}

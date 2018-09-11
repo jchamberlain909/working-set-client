@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
-import './styles/UserForm'
+import './styles/UserForm.css'
 
 class UserForm extends Component {
-    state = {  }
+    state = { 
+        email: ""
+     }
+
+     onChangeHandler = (e) => {
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+
     render() { 
         return ( 
-        <form>
-
+        <form className="user-form">
+            <input type="text"
+                    value={this.state.email}
+                    name="email"
+                    onChange={this.onChangeHandler}
+                    placeholder="Email"
+             />
+             <button>Invite</button>
         </form> );
     }
 }

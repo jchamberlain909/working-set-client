@@ -6,6 +6,8 @@ import CompanyForm from "../../components/CompanyForm";
 import {getCompany, editCompany} from "../../redux/actions/company"
 import LoadingSpinner from "../../components/LoadingSpinner"
 import { Dropdown } from "semantic-ui-react";
+import { Switch, Route } from 'react-router'
+import UserList from '../../components/UserList'
 import 'semantic-ui-css/components/dropdown.min.css';
 import 'semantic-ui-css/components/menu.min.css';
 import 'semantic-ui-css/components/item.min.css';
@@ -67,7 +69,13 @@ class CompanyView extends Component {
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>
-                    <ProjectView />
+                    <Switch>
+                        <Route exact path="/company/users" 
+                            render={(routerProps)=><UserList {...routerProps}/>}/>
+                        <Route path="/projects" 
+                            render={(routerProps)=><ProjectView {...routerProps}/>}/>
+                    </Switch>
+                    
                     
                 </div>:
                 <div>
