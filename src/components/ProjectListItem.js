@@ -9,7 +9,6 @@ const ProjectListItem = ({project}) => {
     <tr className="project-list-item">
         <td><Link to={`/projects/${project.id}`}>{project.name}</Link></td>
         <td>{moment(project.lastUpdated).format('MMMM Do YYYY')}</td>
-        <td></td>
     </tr> );
 }
  

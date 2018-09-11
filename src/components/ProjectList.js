@@ -26,7 +26,6 @@ class ProjectList extends Component{
                         <tr>
                             <th>Name</th>
                             <th>Date Updated</th>
-                            <th>Followers</th>
                         </tr>
                     </thead>
                     <tbody>   

@@ -38,8 +38,8 @@ class CompanyView extends Component {
                             <Dropdown.Menu>
                                 <Dropdown.Item text="New Project" 
                                     onClick={()=>this.props.history.push('/projects/new')} />
-                                <Dropdown.Item text="Invite User to Company" 
-                                    onClick={()=>this.props.history.push('/company/invite')} />
+                                <Dropdown.Item text="Company Users" 
+                                    onClick={()=>this.props.history.push('/company/users')} />
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>
