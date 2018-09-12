@@ -42,6 +42,7 @@ class FollowerForm extends Component {
     render() { 
         const {loading, email, results} = this.state
         return (
+        
         <form className="follower-form">
             <Search 
                 loading={loading}

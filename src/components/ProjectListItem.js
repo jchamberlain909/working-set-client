@@ -8,7 +8,7 @@ const ProjectListItem = ({project}) => {
     return ( 
     <tr className="project-list-item">
         <td><Link to={`/projects/${project.id}`}>{project.name}</Link></td>
-        <td>{moment(project.lastUpdated).format('MMMM Do YYYY')}</td>
+        <td>{moment(project.last_updated).format('MMMM Do YYYY')}</td>
     </tr> );
 }
  

@@ -1,0 +1,14 @@
+div.error {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #FF0000CC;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+div.error i {
+    margin-left: 10px;
+    color: white;
+}

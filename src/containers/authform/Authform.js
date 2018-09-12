@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { authUser } from "../../redux/actions/Auth";
 import { addError, removeError } from "../../redux/actions/errors";
-
+import ErrorMessage from '../../components/ErrorMessage'
 import { withRouter } from "react-router-dom";
 import "./Authform.css";
 
@@ -70,7 +70,7 @@ class AuthForm extends Component {
                 
                 <h1>{formType==='signup'?"Sign Up":"Login"}</h1>
                 <hr/>
-                {errors && <div className="error">{errors}</div>}
+                <ErrorMessage />
                 {formType==='signup'&&<input type="text" value={this.state.name}
                                          label='Name' 
                                          placeholder='Name'

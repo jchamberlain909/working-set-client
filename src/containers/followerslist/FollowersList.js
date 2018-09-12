@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import FollowerForm from '../../components/FollowerForm'
 import FollowerListItem from '../../components/FollowerListItem'
 import {removeFollower} from '../../redux/actions/projectDetail'
+import ErrorMessage from '../../components/ErrorMessage'
 import './FollowersList.css'
 
 class FollowersList extends Component {
@@ -13,6 +14,7 @@ class FollowersList extends Component {
         return ( 
         <div className="follower-view">
             <h4>Project Followers</h4>
+            <ErrorMessage />
             <FollowerForm projectId={projectId}/>
             <table className="follower-list">
                 <thead>
