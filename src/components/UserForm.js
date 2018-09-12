@@ -17,6 +17,10 @@ class UserForm extends Component {
     onSubmitHandler = (e) => {
         e.preventDefault()
         this.props.inviteUser({companyId:this.props.companyId, email:this.state.email})
+        .then(()=>this.setState({email:""}))
+        .catch(()=>{
+            
+        })
     }
 
     render() { 

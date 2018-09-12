@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createCompany } from "../redux/actions/company";
 import { connect } from "react-redux";
+import ErrorMessage from './ErrorMessage'
 
 class CompanyForm extends Component {
     state = { 
@@ -22,6 +23,7 @@ class CompanyForm extends Component {
         return ( 
         <div className="company-form">
             <h3>Create a Company</h3>
+            <ErrorMessage />
             <input type="text" value={name} name="name" 
             placeholder='Company Name' onChange={this.onChangeHandler}/>
             <button onClick={this.createCompanyHandler}>Create</button>

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import UserListItem from './UserListItem'
 import UserForm from './UserForm'
 import { removeUser } from "../redux/actions/company";
+import ErrorMessage from './ErrorMessage'
 import './styles/UserList.css'
 
 const UserList = ({users, removeUser, companyId, currentUserId}) => {
@@ -24,6 +25,7 @@ const UserList = ({users, removeUser, companyId, currentUserId}) => {
             </tbody>
         </table>
         <h2>Invite a user to join your team</h2>
+        <ErrorMessage/>
         <UserForm companyId={companyId}/>
     </div> );
 }
