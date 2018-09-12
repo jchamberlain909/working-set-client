@@ -11,6 +11,7 @@ export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER"
 // Project Actions
 export const SET_PROJECTS = "SET_PROJECTS"
 export const ADD_PROJECT = "ADD_PROJECTS"
+export const DELETE_PROJECT = "DELETE_PROJECT"
 
 // Company Actions
 export const SET_COMPANY = "SET_COMPANY"

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getProjectDetails } from "../../redux/actions/projectDetail";
+import { deleteProject } from "../../redux/actions/projects";
 import { Switch, Route } from "react-router-dom";
 import LoadingSpinner from '../../components/LoadingSpinner'
 import FollowersList from '../followerslist/FollowersList'
@@ -22,6 +23,13 @@ class ProjectDetail extends Component {
         this.props.getProjectDetails(this.id)
         .then(()=>{
             this.setState({loading: false})
+        })
+    }
+
+    onDeleteHandler = () =>{
+        this.props.deleteProject({projectId:this.id})
+        .then(()=>{
+            this.props.history.push('/projects')
         })
     }
 
@@ -61,6 +69,7 @@ class ProjectDetail extends Component {
                         }
                     />
                 </Switch>
+                <button onClick={this.onDeleteHandler}>DELETE PROJECT</button>
             </React.Fragment>
             }
             
@@ -69,4 +78,4 @@ class ProjectDetail extends Component {
 }
  
 const mapStateToProps = ({projectDetail}) => ({projectDetail})
-export default connect(mapStateToProps,{getProjectDetails})(ProjectDetail);
+export default connect(mapStateToProps,{getProjectDetails, deleteProject})(ProjectDetail);

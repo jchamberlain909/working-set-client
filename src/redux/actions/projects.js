@@ -1,4 +1,4 @@
-import { SET_PROJECTS, ADD_PROJECT } from "./types";
+import { SET_PROJECTS, ADD_PROJECT, DELETE_PROJECT } from "./types";
 import { addError, removeError } from "./errors";
 
 
@@ -67,3 +67,32 @@ export const createProject = (projectData) => {
     }
 }
 
+export const deleteProject = ({projectId}) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return fetch(`http://localhost:3000/project/${projectId}`,{
+                method:"DELETE",
+                headers:{
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: `Token ${localStorage.getItem("token")}`
+                }
+            }
+            ).then(res=>{
+                return res.json()
+            })
+            .then(({success, message})=>{
+                if (!success) {
+                    throw message
+                }
+                dispatch({type:DELETE_PROJECT, projectId})
+                dispatch(removeError())
+                resolve()
+            })
+            .catch(err=>{
+                dispatch(addError(err))
+                reject()
+            })
+        })
+    }
+}
