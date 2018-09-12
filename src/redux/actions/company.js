@@ -116,3 +116,33 @@ export const removeUser = ({companyId, userId}) => {
         })
 }
 }
+
+export const inviteUser = ({companyId, email}) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+        return fetch(`http://localhost:3000/company/${companyId}/user`,{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: `Token ${localStorage.getItem("token")}`
+            },
+            body: JSON.stringify({email})
+        }
+        ).then(res=>{
+            return res.json()
+        })
+        .then(({success, message})=>{
+            if (!success) {
+                throw message
+            }
+            dispatch(removeError())
+            resolve()
+        })
+        .catch(err=>{
+            dispatch(addError(err))
+            reject()
+        })
+    })
+}
+}

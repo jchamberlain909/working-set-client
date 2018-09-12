@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { inviteUser } from "../redux/actions/company";
 import './styles/UserForm.css'
 
 class UserForm extends Component {
@@ -12,6 +14,11 @@ class UserForm extends Component {
         })
     }
 
+    onSubmitHandler = (e) => {
+        e.preventDefault()
+        this.props.inviteUser({companyId:this.props.companyId, email:this.state.email})
+    }
+
     render() { 
         return ( 
         <form className="user-form">
@@ -21,9 +28,9 @@ class UserForm extends Component {
                     onChange={this.onChangeHandler}
                     placeholder="Email"
              />
-             <button>Invite</button>
+             <button onClick={this.onSubmitHandler}>Invite</button>
         </form> );
     }
 }
  
-export default UserForm;
+export default connect(null,{inviteUser})(UserForm);
