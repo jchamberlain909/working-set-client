@@ -13,7 +13,7 @@ class Content extends Component {
         return (
             <div className="content">
                 <Switch>
-                    <Route exact path="/" component={Home}/>
+                    <Route exact path="/" render={(routerProps)=><Home {...routerProps} />}/>
                     <Route exact path="/signup" render={
                         (routerProps)=><AuthForm {...routerProps} formType="signup"/>}/>
                     <Route exact path="/login" render={

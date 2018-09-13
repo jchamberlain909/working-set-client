@@ -54,8 +54,10 @@ class CompanyView extends Component {
                                     onChange={this.onChangeHandler}
                                     name="name" 
                                     value={name}/>
-                                <button onClick={this.onSubmitHandler}>Save</button>
-                                <button onClick={()=>this.setState({edit:false})}>Cancel</button>
+                                <div className="button-group">
+                                    <button onClick={this.onSubmitHandler}>Save</button>
+                                    <button onClick={()=>this.setState({edit:false})}>Cancel</button>
+                                </div>
                             </div>
                         }
                         <Dropdown text="Company Actions">

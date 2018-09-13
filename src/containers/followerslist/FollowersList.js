@@ -25,10 +25,10 @@ class FollowersList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {followers.map(follower=><FollowerListItem 
+                    {followers.length!==0?followers.map(follower=><FollowerListItem 
                                     key={follower.id} follower={follower}
                                     removeFollower={removeFollower}
-                                    projectId={projectId}/>)}
+                                    projectId={projectId}/>):<tr><td>No Followers...</td></tr>}
                 </tbody>
             </table>
         </div> );

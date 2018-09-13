@@ -13,12 +13,17 @@
     margin-bottom: 20px;
 }
 
+textarea {
+    width: 60%;
+}
+
 .file-input {
     display: flex;
     flex-direction: column;
     padding: 20px;
     align-items: center;
     border: 1px solid #e0e1e2;
+    width: 60%;
 }
 
 button.button {
@@ -82,4 +87,21 @@ label {
 
 input {
     width: 90%;
+}
+
+.drawing-form button.submit {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #1ECD97;
+    border: 2px solid #1ECD97;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }

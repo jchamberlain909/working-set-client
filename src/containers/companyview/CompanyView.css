@@ -15,9 +15,8 @@
     width: 100%;
 }
 
-.company-view h1 {
-    height: 10%;
-    width: 100%;
+.company-view-header h1 {
+    max-width: 60%;
 }
 
 
@@ -33,9 +32,11 @@
 
 .company-view a {
     min-width: fit-content;
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 1.5rem;
+    color: black;
 }
+
 
 /* .company-view-header button {
     outline: none;
@@ -56,6 +57,17 @@
 
 .company-view-header input {
     font-size: 2em;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .ui.dropdown {
@@ -65,4 +77,26 @@
 .editable-field {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    min-width: 60%;
+}
+
+.editable-field div.button-group {
+    padding: 0;
+    margin-top: 8px;
+    margin-right: 8px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    background: #ffffff;
+    align-content: center;
+    border: 1px solid rgba(23,24,26,0.11);
+    border-radius: 5px;
+    height: fit-content;
+}
+
+.editable-field button {
+    height: 30px;
+    display: flex;
+    align-items: center;
 }

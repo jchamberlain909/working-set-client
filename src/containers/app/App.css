@@ -7,7 +7,8 @@
 }
 
 .App.Authed {
-    animation: background-shrink 3s forwards;
+    background: white;
+    /* animation: background-shrink 3s forwards; */
 }
 
 @keyframes background-shrink {

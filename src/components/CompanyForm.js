@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { createCompany } from "../redux/actions/company";
 import { connect } from "react-redux";
 import ErrorMessage from './ErrorMessage'
+import './styles/CompanyForm.css'
 
 class CompanyForm extends Component {
     state = { 
@@ -22,12 +23,12 @@ class CompanyForm extends Component {
         const {name} = this.state
         return ( 
         <div className="company-form">
-            <h3>Create a Company</h3>
+            <h1>Create a Company</h1>
             <ErrorMessage />
             <input type="text" value={name} name="name" 
             placeholder='Company Name' onChange={this.onChangeHandler}/>
             <button onClick={this.createCompanyHandler}>Create</button>
-            <h3>Join a Company</h3>
+            <h1>Join a Company</h1>
             <p>To join a company you must be invited by a team member. Please have a member of your team sign in, go to Company Actions, select Add/Remove Users and invite you by email.</p>
         </div> );
     }

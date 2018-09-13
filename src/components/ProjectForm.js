@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { createProject } from "../redux/actions/projects";
 import { connect } from "react-redux";
 import ErrorMessage from './ErrorMessage'
+import './styles/ProjectForm.css'
 
 class ProjectForm extends Component {
     state = { 
@@ -27,7 +28,7 @@ class ProjectForm extends Component {
         const {name} = this.state
         return ( 
         <div className="project-form">
-            <h3>Create a Project</h3>
+            <h1>Create a Project</h1>
             <ErrorMessage />
             <input type="text" value={name} name="name" 
             placeholder='Project Name' onChange={this.onChangeHandler}/>

@@ -42,15 +42,16 @@ class ProjectDetail extends Component {
             <React.Fragment>
                 <div className="project-detail-header">
                     <div className="project-detail-header-left">
-                        <h2>{projectDetail.name}</h2>
-                        <h4>Last Updated: <span>{moment(projectDetail.lastUpdated).format('MMMM Do YYYY')}</span></h4>
-                    </div>
-                    <div className="project-detail-header-right">
+                        <h1>{projectDetail.name}</h1>
+                        <p className="date">Updated {moment(projectDetail.lastUpdated).format('MMMM Do YYYY')}</p>
                         {projectDetail.drawingLink&&
                         <h4><a href={projectDetail.drawingLink} target="_blank">View Current Drawings</a></h4>}
-                        <button 
+                    </div>
+                    <div className="project-detail-header-right">
+                        
+                        {this.props.location.pathname===`/projects/${this.id}`&&<button 
                             onClick={()=>this.props.history.push(`/projects/${this.id}/push`)}>
-                            Push Updated Drawings</button>
+                            Push Updated Drawings</button>}
                     </div>
                 </div>
                 <Switch>
@@ -69,7 +70,9 @@ class ProjectDetail extends Component {
                         }
                     />
                 </Switch>
-                <button onClick={this.onDeleteHandler}>DELETE PROJECT</button>
+                {this.props.location.pathname===`/projects/${this.id}`&&<div className="row">
+                    <button onClick={this.onDeleteHandler}>DELETE PROJECT</button>
+                </div>}
             </React.Fragment>
             }
             
