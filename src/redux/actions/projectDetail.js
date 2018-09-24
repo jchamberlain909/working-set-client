@@ -8,7 +8,7 @@ export const setProjectDetails = (project) =>({type:SET_PROJECT_DETAILS, project
 export const getProjectDetails = (id) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
-            return fetch(`http://localhost:3000/project/${id}`,{
+            return fetch(`https://hidden-temple-37504.herokuapp.com/project/${id}`,{
                 headers:{
                     "Content-Type": "application/json",
                     Accept: "application/json",
@@ -45,7 +45,7 @@ export const getProjectDetails = (id) => {
 export const addFollower = ({projectId, email}) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
-            return fetch(`http://localhost:3000/project/${projectId}/follow`,{
+            return fetch(`https://hidden-temple-37504.herokuapp.com/project/${projectId}/follow`,{
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json",
@@ -81,7 +81,7 @@ export const addFollower = ({projectId, email}) => {
 
 export const removeFollower = ({projectId, followerId}) => {
     return dispatch => {
-        return fetch(`http://localhost:3000/project/${projectId}/follow/${followerId}`,{
+        return fetch(`https://hidden-temple-37504.herokuapp.com/project/${projectId}/follow/${followerId}`,{
                 method: "DELETE",
                 headers:{
                     "Content-Type": "application/json",
@@ -109,7 +109,7 @@ export const removeFollower = ({projectId, followerId}) => {
 export const updateDrawings = ({projectId, formData})=>{
     return dispatch => {
         return new Promise((resolve, reject) => {
-        return fetch(`http://localhost:3000/project/${projectId}/upload`,{
+        return fetch(`https://hidden-temple-37504.herokuapp.com/project/${projectId}/upload`,{
                 method: "POST",
                 headers:{
                     Authorization: `Token ${localStorage.getItem("token")}`

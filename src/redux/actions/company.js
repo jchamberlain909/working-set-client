@@ -6,7 +6,7 @@ export const setCompany = (company) => ({type:SET_COMPANY,company})
 
 export const getCompany = () => {
     return dispatch => {
-        return fetch(`http://localhost:3000/company`,{
+        return fetch(`https://hidden-temple-37504.herokuapp.com/company`,{
                 headers:{
                     "Content-Type": "application/json",
                     Accept: "application/json",
@@ -31,7 +31,7 @@ export const getCompany = () => {
 
 export const createCompany = (companyData) => {
     return dispatch => {
-            return fetch(`http://localhost:3000/company`,{
+            return fetch(`https://hidden-temple-37504.herokuapp.com/company`,{
                 method:"POST",
                 headers:{
                     "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export const createCompany = (companyData) => {
 export const editCompany = ({id, name}) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
-        return fetch(`http://localhost:3000/company/${id}`,{
+        return fetch(`https://hidden-temple-37504.herokuapp.com/company/${id}`,{
             method:"PATCH",
             headers:{
                 "Content-Type": "application/json",
@@ -93,7 +93,7 @@ export const addContact = (email) => ({type:ADD_CONTACT, contact:email})
 
 export const removeUser = ({companyId, userId}) => {
     return dispatch => {
-        return fetch(`http://localhost:3000/company/${companyId}/user/${userId}`,{
+        return fetch(`https://hidden-temple-37504.herokuapp.com/company/${companyId}/user/${userId}`,{
             method:"DELETE",
             headers:{
                 "Content-Type": "application/json",
@@ -120,7 +120,7 @@ export const removeUser = ({companyId, userId}) => {
 export const inviteUser = ({companyId, email}) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
-        return fetch(`http://localhost:3000/company/${companyId}/user`,{
+        return fetch(`https://hidden-temple-37504.herokuapp.com/company/${companyId}/user`,{
             method:"POST",
             headers:{
                 "Content-Type": "application/json",

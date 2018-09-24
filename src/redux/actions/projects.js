@@ -9,7 +9,7 @@ export const addProject = (project) => ({type:ADD_PROJECT, project})
 export const getProjects = () => {
     return dispatch => {
         return new Promise((resolve, reject) => {
-            return fetch(`http://localhost:3000/project`,{
+            return fetch(`https://hidden-temple-37504.herokuapp.com/project`,{
                 headers:{
                     "Content-Type": "application/json",
                     Accept: "application/json",
@@ -39,7 +39,7 @@ export const getProjects = () => {
 export const createProject = (projectData) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
-            return fetch(`http://localhost:3000/project`,{
+            return fetch(`https://hidden-temple-37504.herokuapp.com/project`,{
                 method:"POST",
                 headers:{
                     "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export const createProject = (projectData) => {
 export const deleteProject = ({projectId}) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
-            return fetch(`http://localhost:3000/project/${projectId}`,{
+            return fetch(`https://hidden-temple-37504.herokuapp.com/project/${projectId}`,{
                 method:"DELETE",
                 headers:{
                     "Content-Type": "application/json",

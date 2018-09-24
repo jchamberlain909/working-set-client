@@ -17,7 +17,7 @@ export function logoutCurrentUser() {
 export function authUser(type, userData) {
     return dispatch => {
         return new Promise((resolve, reject) => {
-            return fetch(`http://localhost:3000/${type}`,{
+            return fetch(`https://hidden-temple-37504.herokuapp.com/${type}`,{
                 method:"POST",
                 headers:{
                     "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export function authUser(type, userData) {
 export function authUserFromToken() {
     return dispatch => {
         return new Promise((resolve, reject) => {
-            return fetch(`http://localhost:3000/user`,{
+            return fetch(`https://hidden-temple-37504.herokuapp.com/user`,{
                 headers:{
                     "Content-Type": "application/json",
                     Accept: "application/json",
