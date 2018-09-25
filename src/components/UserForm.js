@@ -31,16 +31,19 @@ class UserForm extends Component {
 
     render() { 
         return ( 
-        <form className="user-form">
+        <React.Fragment>
             {this.state.success&&<div className="success">Invitation Sent</div>}
-            <input type="text"
-                    value={this.state.email}
-                    name="email"
-                    onChange={this.onChangeHandler}
-                    placeholder="Email"
-             />
-             <button onClick={this.onSubmitHandler}>Invite</button>
-        </form> );
+            <form className="user-form">
+                <input type="text"
+                        value={this.state.email}
+                        name="email"
+                        onChange={this.onChangeHandler}
+                        placeholder="Email"
+                />
+                <button onClick={this.onSubmitHandler}>Invite</button>
+            </form> 
+        </React.Fragment>
+        );
     }
 }
  

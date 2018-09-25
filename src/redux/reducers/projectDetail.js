@@ -1,4 +1,4 @@
-import { SET_PROJECT_DETAILS, ADD_FOLLOWER, REMOVE_FOLLOWER, DELETE_PROJECT } from "../actions/types";
+import { SET_PROJECT_DETAILS, ADD_FOLLOWER, REMOVE_FOLLOWER } from "../actions/types";
 import { LOGOUT_CURRENT_USER } from "../actions/types";
 
 

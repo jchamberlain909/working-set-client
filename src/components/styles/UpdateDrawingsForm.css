@@ -104,4 +104,54 @@ input {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.25s ease;
+    outline: none;
 }
+
+.drawing-form button.submit::after {
+    content: "Submit";
+}
+
+.drawing-form button.loading {
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border-color: #bbbbbb;
+    border-width: 3px;
+    font-size: 0;
+    border-left-color: #1ECD97;
+    animation: rotating 2s 0.25s linear infinite;
+    outline: none;
+}
+
+.drawing-form button.loading::after {
+    content: "";
+}
+
+.drawing-form button.done {
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 13px;
+    color: white;
+    background: #1ECD97;
+    outline: none;
+}
+
+.drawing-form button.done::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    
+  }
+
+@keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

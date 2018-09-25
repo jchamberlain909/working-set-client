@@ -52,7 +52,7 @@ class AuthForm extends Component {
 
 
     render() { 
-        const {formType, errors} = this.props
+        const {formType} = this.props
         const {loading, done } = this.state
 
         let buttonStatus = ""

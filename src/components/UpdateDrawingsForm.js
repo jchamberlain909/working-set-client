@@ -11,7 +11,9 @@ class UpdateDrawingsForm extends Component {
         this.state = { 
             message: '',
             upload: true,
-            file_url: ""
+            file_url: "",
+            loading: false,
+            done: false
         }
     }
 
@@ -32,6 +34,9 @@ class UpdateDrawingsForm extends Component {
 
     onSubmitHandler = (e) => {
         e.preventDefault()
+        this.setState({
+            loading: true
+        })
         let data = new FormData()
         data.append('message', this.state.message)
         if (this.state.upload) {
@@ -43,12 +48,28 @@ class UpdateDrawingsForm extends Component {
             projectId:this.props.projectId,
             formData: data
         }).then(()=>{
-            this.props.history.push(`/projects/${this.props.projectId}`)
+            this.setState({done:true, loading:false},
+                ()=>setTimeout(() => {
+                    this.props.history.push(`/projects/${this.props.projectId}`)
+                }, 500) 
+            )
+            
         })
 
     }
 
     render() { 
+        const {loading, done } = this.state
+
+        let buttonStatus = ""
+
+        if (loading) {
+            buttonStatus= "loading"
+        }else if (done) {
+            buttonStatus= "done"
+        }else{
+            buttonStatus = "submit"
+        }
         return ( 
         <form className="drawing-form">
             <h3>Push New Drawings</h3>
@@ -82,7 +103,7 @@ class UpdateDrawingsForm extends Component {
                     />
                 }
             </div>
-            <button className="submit" onClick={this.onSubmitHandler}>Submit</button>
+            <button className={buttonStatus} onClick={this.onSubmitHandler}></button>
         </form> );
     }
 }
