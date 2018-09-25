@@ -42,7 +42,6 @@
     border-radius: 5px;
     background-color: #1ECD97;
     color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: block;
+    text-align: center;
 }
