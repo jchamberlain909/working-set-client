@@ -5,7 +5,8 @@ import './styles/UserForm.css'
 
 class UserForm extends Component {
     state = { 
-        email: ""
+        email: "",
+        success: false
      }
 
      onChangeHandler = (e) => {
@@ -17,7 +18,12 @@ class UserForm extends Component {
     onSubmitHandler = (e) => {
         e.preventDefault()
         this.props.inviteUser({companyId:this.props.companyId, email:this.state.email})
-        .then(()=>this.setState({email:""}))
+        .then(()=>{
+            this.setState({email:"", success:true})
+            setTimeout(() => {
+                this.setState({success:false})
+            }, 2000);
+        })
         .catch(()=>{
             
         })
@@ -26,6 +32,7 @@ class UserForm extends Component {
     render() { 
         return ( 
         <form className="user-form">
+            {this.state.success&&<div className="success">Invitation Sent</div>}
             <input type="text"
                     value={this.state.email}
                     name="email"
