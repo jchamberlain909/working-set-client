@@ -7,7 +7,11 @@ export default (state=null, action) => {
         case SET_COMPANY:
             return action.company
         case ADD_CONTACT:
-            return {...state,contacts:[...state.contacts,action.contact]}
+            if (state.contacts.includes(action.contact)) {
+                return state
+            } else {
+                return {...state,contacts:[...state.contacts,action.contact]}
+            }
         case LOGOUT_CURRENT_USER:
             return null
         case REMOVE_USER:
